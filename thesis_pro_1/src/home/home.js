@@ -11,7 +11,7 @@ import SHOW_PRODUCT from  '../home/head/showProduct.js';
 import BUTTON_FACE_LINE from '../home/head/buttonFaceLine.js';
 import SHOW_MODAL from '../home/head/showModal';
 import queryString from 'query-string';
-
+import {BrowserRouter,Link,Route} from 'react-router-dom';
 
 class Home extends Component {
   constructor(props) {
@@ -157,7 +157,7 @@ class Home extends Component {
         </Columns >
         <SHOW_MODAL showModal={this.state.showModal} dataModal={this.state.dataModal} setFalseShowModal={this.setFalseShowModal}/>
    
-       
+
       </div>
     );
   }
