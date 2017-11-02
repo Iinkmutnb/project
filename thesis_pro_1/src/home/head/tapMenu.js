@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Tabs,TabGroup,Tab} from 're-bulma';
-
+import { Link} from 'react-router-dom'
 const tapMenu = ()=>(
     <div style={{   
        
@@ -8,11 +8,11 @@ const tapMenu = ()=>(
         border:'1px solid #C8C8C8',borderRadius: '12px',marginBottom:'15px',padding:'10px'}}>
     <Tabs>
         <TabGroup>
-            <Tab >
-                สินค้าแนะนำ
+            <Tab ><Link to="/product">
+                สินค้าแนะนำ</Link>
             </Tab>
-            <Tab >
-             สินค้า Promotion
+            <Tab ><Link to="/register">
+             สินค้า Promotion</Link>
             </Tab>
             <Tab>
                 ตระกร้าสินค้า

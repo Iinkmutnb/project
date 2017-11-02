@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Menu,MenuList,MenuLink,MenuLabel} from 're-bulma';
+
 const menuSide = ()=>(
     <div>
     <Menu style={{border:'1px solid #C8C8C8',borderRadius: '12px 12px 0px 0px',background:'linear-gradient(to bottom, #bfbfbf 0%, #ffffff 100%)',padding:'10px'}}>

@@ -7,6 +7,7 @@
     "colors.css": "^3.0.0",
     "re-bulma": "^0.4.5",
     "react": "^15.6.1",
+    "react-cookies": "^0.1.0",
     "react-dom": "^15.6.1",
     "react-image-gallery": "^0.8.3",
     "react-picture-show": "^1.4.0",
