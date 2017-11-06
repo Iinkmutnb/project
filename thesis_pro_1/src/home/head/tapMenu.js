@@ -11,8 +11,8 @@ const tapMenu = ()=>(
             <Tab ><Link to="/product">
                 สินค้าแนะนำ</Link>
             </Tab>
-            <Tab ><Link to="/register">
-             สินค้า Promotion</Link>
+            <Tab >
+             สินค้า Promotion
             </Tab>
             <Tab>
                 ตระกร้าสินค้า

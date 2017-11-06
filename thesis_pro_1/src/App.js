@@ -7,17 +7,19 @@ import {BrowserRouter,Link,Route,Match} from 'react-router-dom';
 import {  Columns ,Column} from 're-bulma';
 import MENU_SIDE from  '././home/head/menuSide.js';
 import PRODUCT from './home/product.js';
-import REGISTER from './home/register.js';
+
 import TAP_MENU from  './home/head/tapMenu.js';
 import LOGO from  './home/head/logo.js';
 import SLIDE from  './home/head/slide.js';
 import LOGIN from  './home/head/login.js';
+import REGISTER from './home/head/register.js';
 import BUTTON_FACE_LINE from  './home/head/buttonFaceLine.js';
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      exact:false
+      exact:false,
+      exactProdcut:false
     };
     
   }
@@ -30,17 +32,18 @@ class App extends Component {
     if(window.location.pathname=="/register"){
       this.setState({exact:true})
     }
-   
+  
     
   }
- setExact=(value)=>{
+ setExact=(value,value2)=>{
  
-  this.setState({exact:value})
+  this.setState({exact:value,exactProdcut:value2})
  
  }
+
   render() {
     return (
-      <div>
+      <div  >
        <BrowserRouter >
        {this.state.exact ? (
          <div>
@@ -59,7 +62,7 @@ class App extends Component {
          </div>):
          (
          <div>
-         <Route path='/register'   render={(props) => <REGISTER setExact={this.setExact}/>} />
+         
             <Columns  style={this.state.exact ? ({}):({border:'1px solid #C8C8C8',borderRadius: '12px',background:'linear-gradient(to bottom, #bfbfbf 0%, #ffffff 100%)'})}>
               <Column >
                 <Route path='/'  exact={this.state.exact} component={LOGO}/>
@@ -93,7 +96,8 @@ class App extends Component {
               
                 <Column  context="isChild" > 
                   <Route path='/product'  render={(props) => <PRODUCT setExact={this.setExact}/>}  />
-                
+                  <Route path='/' exact={this.state.exactProdcut} render={(props) => <PRODUCT setExact={this.setExact}/>}  />
+                  <Route path='/register'   render={(props) => <REGISTER setExact={this.setExact}/>} />
                 </Column>
             
               </Column>

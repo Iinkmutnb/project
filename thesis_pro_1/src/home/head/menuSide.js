@@ -1,9 +1,32 @@
 import React, { Component } from 'react';
-import {Menu,MenuList,MenuLink,MenuLabel} from 're-bulma';
+import {Menu,MenuList,MenuLink,MenuLabel,Button} from 're-bulma';
+import { Link} from 'react-router-dom';
+import cookie from 'react-cookies';
+class menuSide extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {checkAdmin:false}
+    }
+    componentDidMount() {
+        
+        var userType= cookie.load('userType');
+        if(userType!=null&&(userType=="admin"||userType=="officer")){
+            console.log("true")
+            this.setState({checkAdmin:true});
 
-const menuSide = ()=>(
-    <div>
-    <Menu style={{border:'1px solid #C8C8C8',borderRadius: '12px 12px 0px 0px',background:'linear-gradient(to bottom, #bfbfbf 0%, #ffffff 100%)',padding:'10px'}}>
+            }
+        
+               
+
+     
+
+    }
+
+    render() {
+      
+        return (
+            <div>
+                <Menu style={{border:'1px solid #C8C8C8',borderRadius: '12px 12px 0px 0px',background:'linear-gradient(to bottom, #bfbfbf 0%, #ffffff 100%)',padding:'10px'}}>
         <MenuLabel>
             <h1 style={{color:'black'}}> สินค้า</h1>
         </MenuLabel>
@@ -28,7 +51,22 @@ borderWidth: '0px 1px 1px 1px',borderRadius: '0px 0px 12px 12px'}}>
 
         </MenuList>
     </Menu>
-    </div>
+    {this.state.checkAdmin?
+    (
+        <div>
+        <Button> 
+        <Link to="/">เข้าสู่ะบบการแก้ไข
+        </Link>
+        </Button>
 
-                   );
+        </div>
+    ):(<div> </div>
+    )}
+    
+
+    </div>
+        );
+    }
+}
+
 export default menuSide;

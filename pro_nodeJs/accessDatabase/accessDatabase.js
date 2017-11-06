@@ -1,8 +1,8 @@
 var querys = require('./showProduct.js');
 var showModal = require('./showModal.js');
 var login = require('./login.js');
-var checkUser=require('./checkUser.js');
-
+var checkUserPass=require('./checkUserPass.js');
+var insertUser=require('./insertUser.js');
 module.exports={
     querys: function(name,res) {
         querys.querys(name,res);
@@ -13,8 +13,11 @@ module.exports={
     login:function(user,pass,res) {
         login.login(user,pass,res);
     },
-    checkUser:function(user,res) {
-        checkUser.checkUser(user,res);
+    checkUserPass:function(user,email,res) {
+        checkUserPass.checkUserPass(user,email,res);
+    },
+    insertUser:function(user,pass,name,subName,email,phone,address,res) {
+        insertUser.insertUser(user,pass,name,subName,email,phone,address,res);
     }
 
 

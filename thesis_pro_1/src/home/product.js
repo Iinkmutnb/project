@@ -47,7 +47,7 @@ class Product extends Component {
           });
     
         
-          this.props.setExact(false);
+          this.props.setExact(false,true);
           
         
       }

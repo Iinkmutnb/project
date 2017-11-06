@@ -37,16 +37,11 @@ router.route('/showModal').post(function(req, res) {
 router.route('/login').post(function(req, res) {
        access.login(req.body.user,req.body.pass,res)
  })
- router.route('/checkUser').post(function(req, res) {
-    access.checkUser(req.body.user,res)
+ router.route('/checkUserPass').post(function(req, res) {
+    access.checkUserPass(req.body.user,req.body.email,res)
 })
  router.route('/insertusers').post(function(req, res) {
-    /*connection.query("INSERT INTO product values( null,'"+req.body.name+"','"+req.body.job+"')", function (err, result, fields) {
-        if (err) throw err;
-                console.log(result);
-                res.setHeader('Access-Control-Allow-Origin', '*');
-                res.json(result);
-               });*/
+    access.insertUser(req.body.user,req.body.pass,req.body.name,req.body.subName,req.body.email,req.body.phone,req.body.address,res);
 })
     
 

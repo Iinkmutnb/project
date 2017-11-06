@@ -31,8 +31,10 @@ class register extends Component {
     }
     
     componentWillMount() {
-    this.props.setExact(true);
+      this.props.setExact(false,true);
+      window.scrollTo(0,500)
     }
+    
     setUser=(event)=>{
       this.setState({user: event.target.value})
     }
@@ -136,37 +138,41 @@ class register extends Component {
                             if(this.state.user.length<6){
                                 this.setState({inputUser:(<Input type="text" placeholder="Text input"  color="isInfo" size="isSmall" onChange={this.setUser} onBlur={this.checkUser}   
                                 icon="fa-warning" hasIconRight help={{ color: 'isDanger', text: 'user ควรเกิน 6 ตัว',}}/>)})
-                                window.scrollTo(0, 0);  
+                                window.scrollTo(0,100);  
                           }else if(check1==0){
                                 this.setState({inputUser:(<Input type="text" placeholder="Text input"  color="isInfo" size="isSmall" onChange={this.setUser} onBlur={this.checkUser}   
                                 icon="fa-warning" hasIconRight help={{ color: 'isDanger', text: 'user นี้มีคนใช้แล้ว',}}/>)})
-
+                                window.scrollTo(0,100);  
                             }else{ 
                             this.setState({inputUser:(<Input type="text" placeholder="Text input"  color="isInfo" size="isSmall" onChange={this.setUser} onBlur={this.checkUser}   
                               icon="fa fa-check"  hasIconRight help={{ color: 'isSuccess',text: 'This username is available'}}/>)})
                               check2=1;
+                             
                             }
                             if(this.state.pass.length<6){
                                 this.setState({inputPass:(<Input type="password" placeholder="pass"  color="isInfo" size="isSmall" onChange={this.setPass} onBlur={this.checkPass}   
                                 icon="fa-warning" hasIconRight help={{ color: 'isDanger', text: 'รหัสผ่านควรเกิน 6 ตัว',}}/>)})
+                                window.scrollTo(0,150);  
                             }else{ 
                                 this.setState({inputPass:(<Input type="password" placeholder="pass"  color="isInfo" size="isSmall" onChange={this.setPass} onBlur={this.checkPass}  
                                 icon="fa fa-check"  hasIconRight help={{ color: 'isSuccess',text: 'This pass is available'}}/>)})
                                 check3=1 ;
+                                
                             }
                             if(this.state.pass!=this.state.passAgain){
                                 this.setState({inputPassAgain:(<Input type="password" placeholder="pass again"  color="isInfo" size="isSmall" onChange={this.setPassAgain} onBlur={this.checkPassAgain}   
                                 icon="fa-warning" hasIconRight help={{ color: 'isDanger', text: 'กรอกรหัสผ่านให้ตรงกัน',}}/>)})
-
+                                 window.scrollTo(0,170); 
                             }else if(this.state.passAgain==''){
                                   this.setState({inputPassAgain:(<Input type="password" placeholder="pass again"  color="isInfo" size="isSmall" onChange={this.setPassAgain} onBlur={this.checkPassAgain}   
                                   icon="fa-warning" hasIconRight help={{ color: 'isDanger', text: 'กรอกรหัสผ่านซ้ำอีกครั้ง',}}/>)})
-
+                                window.scrollTo(0,170); 
                             }
                             else{
                                   this.setState({inputPassAgain:(<Input type="password" placeholder="pass again"  color="isInfo" size="isSmall" onChange={this.setPassAgain} onBlur={this.checkPassAgain} 
                                   icon="fa fa-check"  hasIconRight help={{ color: 'isSuccess',text: 'รหัสผ่านตรงกัน'}}/>)})
                                   check4=1;
+                                 
                             }
                             if(this.state.name!='') {check5=1;  this.setState({inputName:this.returnInput("text","Name input","isInfo",this.setName,"fa fa-check",'isSuccess','This name is available')})}
                             else{ this.setState({inputName:this.returnInput("text","Name input","isInfo",this.setName,"fa fa-check",'isDanger','กรุณาใส่ชื่อ')})}
@@ -182,12 +188,12 @@ class register extends Component {
                             if(check==0){this.setState({inputEmail:this.returnInput("text","Email input","isInfo",this.setEmail,"fa fa-check",'isDanger','อีเมลนี้มีคนใช้แล้ว')})}
                               
                             if(this.state.phone!='') {check8=1; this.setState({inputPhone:this.returnInput("text","Phone input","isInfo",this.setPhone,"fa fa-check",'isSuccess','This phone is available')})}
-                            else{this.setState({inputPhone:this.returnInput("text","Phone input","isInfo",this.setPhone,"fa fa-check",'isDanger','กรุณาใส่เบอร์โทร')})}
+                            else{this.setState({inputPhone:this.returnInput("text","Phone input","isInfo",this.setPhone,"fa fa-check",'isDanger','กรุณาใส่เบอร์โทร')});window.scrollTo(0,300); }
                                 
                             if(this.state.address!='') {check9=1;this.setState({inputAddress:(<Textarea   color="isInfo" size="isSmall" onChange={this.setAddress}
                                 icon="fa fa-check"  hasIconRight help={{ color: 'isSuccess',text: 'This name is available'}}/>)})}
                             else{this.setState({inputAddress:(<Textarea   color="isInfo" size="isSmall" onChange={this.setAddress}
-                                icon="fa fa-check"  hasIconRight help={{ color: 'isDanger',text: 'กรุณาใส่ที่อยู่'}}/>)})}
+                                icon="fa fa-check"  hasIconRight help={{ color: 'isDanger',text: 'กรุณาใส่ที่อยู่'}}/>)});window.scrollTo(0,500); }
                                 
                               
                             if(check1===1 && check==1 && check2===1 && check3===1 && check4===1 && check5===1 && check6===1 && check7===1 && check8===1 && check9===1){
@@ -231,38 +237,8 @@ class register extends Component {
     render() {
       
         return (
-        <div >
-          <Hero  style={{height:'680px'}} >
-               
-          <HeroHead >
-                   
-                      <Nav style={{backgroundColor:'#f2f2f2'}} >
-                      
-                        <Container >
-                       
-                          <NavGroup align="left">
-                            <NavItem >
-                              <img src="logo.png" alt="Logo" />
-                            </NavItem>
-                          </NavGroup>
-                          <NavToggle />
-                          <NavGroup align="right" isMenu>
-                            <NavItem isActive>
-                            <Link to="/" style={{padding:'7px'}}  onClick={() => this.props.setExact(false)} >
-                            Home</Link>
-                                
-                              </NavItem>
-                              
-                           
-                            </NavGroup>
-                          
-                        </Container>
-                      
-                      </Nav>
-                        
-                    </HeroHead>
-                    <HeroBody>
-                    <Container >
+        <div>
+       
                         <Box>
                           <Notification >
           {this.state.checkSuckcess ? 
@@ -344,10 +320,8 @@ class register extends Component {
             )}
           </Notification>
                </Box>
-                </Container>
-            </HeroBody>
-          
-            </Hero> 
+              
+        
                 </div>
                 )}}
 

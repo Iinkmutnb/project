@@ -51,10 +51,13 @@ class login extends Component {
             
                                 })
                         }
+                        
     }
     logOut=()=>{
         cookie.remove('userId', { path: '/' });
+        cookie.remove('userType', { path: '/' });
         this.setState({isLogin:false,users:''});
+        window.location.reload();
        
     }
     setUser= (e) => {
@@ -70,8 +73,9 @@ class login extends Component {
         if(user.user===false){return(<div style={{color:'red'}}>ไม่มีuserนี้</div>)}
         else if(user.user===true){return(<div style={{color:'red'}}>รหัสผิด</div>)}
         else if(user.user!=null){ this.setState({isLogin:true});
-                                cookie.save('userId', this.state.user, { path: '/' })
-    
+                                cookie.save('userId', user.user, { path: '/' })
+                                cookie.save('userType', user.type, { path: '/' })
+                                window.location.reload();
                                 }
     
         
@@ -91,7 +95,7 @@ class login extends Component {
                 </Column>
                 <Column  context="isChild">
                     <Button style={{marginLeft:'70px',marginTop:'10px',background:'linear-gradient(to bottom, #ffffff 0%, #d9d9d9 100%)',padding:'0px'}} >
-                         <Link to="/product" onClick={() => this.logOut()} style={{padding:'7px',textDecoration: 'none'}}>
+                         <Link to="/" onClick={() => this.logOut()} style={{padding:'7px',textDecoration: 'none'}}>
                          ออกจากระบบ
                          </Link>
                     </Button>
@@ -124,7 +128,7 @@ class login extends Component {
                     <Content>
                         <Button style={{marginLeft:'70px',marginTop:'10px',background:'linear-gradient(to bottom, #ffffff 0%, #d9d9d9 100%)',padding:'0px'}} >
                         
-                        <Link to="/product" onClick={() => this.logIn()} style={{padding:'7px'}}>
+                        <Link to="/" onClick={() => this.logIn()} style={{padding:'7px'}}>
                         เข้าสู่ระบบ</Link>
                             
                         </Button>
