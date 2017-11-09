@@ -36,6 +36,7 @@ class menuSide extends Component {
 borderStyle: 'solid',
 borderWidth: '0px 1px 1px 1px',borderRadius: '0px 0px 12px 12px'}}>
   <MenuList>
+            <li><MenuLink href="#">สินค้าทั้งหมด</MenuLink></li>
             <li><MenuLink href="#">กบยาง</MenuLink></li>
             <li><MenuLink href="#">งานไม้</MenuLink></li>
             <li><MenuLink href="#">หนอนยาง</MenuLink></li>
@@ -55,7 +56,7 @@ borderWidth: '0px 1px 1px 1px',borderRadius: '0px 0px 12px 12px'}}>
     (
         <div>
         <Button> 
-        <Link to="/">เข้าสู่ะบบการแก้ไข
+        <Link to="/editAdmin" style={{padding:'7px',border:'1px solid'}}>เข้าสู่ะบบการแก้ไข
         </Link>
         </Button>
 

@@ -5,15 +5,20 @@ import insertCss from 'insert-css';
 import css from 're-bulma/build/css';
 import {BrowserRouter,Link,Route,Match} from 'react-router-dom';
 import {  Columns ,Column} from 're-bulma';
-import MENU_SIDE from  '././home/head/menuSide.js';
 import PRODUCT from './home/product.js';
-
+import EDIT_ADMIN from './home/editAdmin.js';
+import MENU_SIDE from  '././home/head/menuSide.js';
 import TAP_MENU from  './home/head/tapMenu.js';
 import LOGO from  './home/head/logo.js';
 import SLIDE from  './home/head/slide.js';
 import LOGIN from  './home/head/login.js';
 import REGISTER from './home/head/register.js';
 import BUTTON_FACE_LINE from  './home/head/buttonFaceLine.js';
+import INSERT_PRODUCT_ADMIN from './home/editAdmin/insert.js';
+import MENU_SIDE_ADMIN from './home/editAdmin/menuSide.js';
+import TAP_MENU_PRODUCT_ADMIN from './home/editAdmin/tapMenuProduct.js';
+import EDIT_PRODUCT_ADMIN from './home/editAdmin/edit.js';
+import DELETE_PRODUCT_ADMIN from './home/editAdmin/deleteProduct.js';
 class App extends Component {
   constructor(props) {
     super(props);
@@ -57,8 +62,25 @@ class App extends Component {
           <Route path='/' exact={this.state.exact}   component={BUTTON_FACE_LINE}/>
           <Route path='/product'  render={(props) => <PRODUCT setExact={this.setExact}/>}  />
           <Route path='/register'   render={(props) => <REGISTER setExact={this.setExact}/>} />
-         
-         
+          <Route path='/editAdmin'   render={(props) => <EDIT_ADMIN setExact={this.setExact}/>} />
+          <Columns>
+                      <Column size="is2" style={{width:'260px'}}>
+                      <Route path='/editAdmin'   render={(props) => <MENU_SIDE_ADMIN setExact={this.setExact}/>} />
+                      </Column>
+                      <Column>
+                        <Column  style={{padding:'10px 1px 0px 5px'}}>
+                        <Route path='/editAdmin/product'   render={(props) => <TAP_MENU_PRODUCT_ADMIN setExact={this.setExact}/>} />
+                        </Column>
+                        <Column style={{marginTop:'0px',padding:'0px 1px 1px 5px'}}>
+                          <Route path='/editAdmin/product/insert'   render={(props) => <INSERT_PRODUCT_ADMIN setExact={this.setExact}/>} />
+                          <Route path='/editAdmin/product/edit'   render={(props) => <EDIT_PRODUCT_ADMIN setExact={this.setExact}/>} />
+                          <Route path='/editAdmin/product/delete'   render={(props) => <DELETE_PRODUCT_ADMIN setExact={this.setExact}/>} />
+                        </Column>
+                      </Column>
+                     
+          </Columns>
+          
+          
          </div>):
          (
          <div>
@@ -87,7 +109,7 @@ class App extends Component {
           
               <Column  context="isParent" isVertical >
               
-                  <div style={{ position: 'sticky', top:'0px',}}>
+                  <div style={{ position: 'sticky', top:'0px',zIndex: '99'}}>
                     <Route path='/' exact={this.state.exact}   component={TAP_MENU}/>
                   </div>
                 <Column  context="isChild" > 
@@ -98,6 +120,10 @@ class App extends Component {
                   <Route path='/product'  render={(props) => <PRODUCT setExact={this.setExact}/>}  />
                   <Route path='/' exact={this.state.exactProdcut} render={(props) => <PRODUCT setExact={this.setExact}/>}  />
                   <Route path='/register'   render={(props) => <REGISTER setExact={this.setExact}/>} />
+                  <Route path='/editAdmin'   render={(props) => <EDIT_ADMIN setExact={this.setExact}/>} />
+                  <Route path='/editAdmin/insert'   render={(props) => <INSERT_PRODUCT_ADMIN setExact={this.setExact}/>} />
+                  <Route path='/editAdmin/product/edit'   render={(props) => <EDIT_PRODUCT_ADMIN setExact={this.setExact}/>} />
+                  <Route path='/editAdmin/product/delete'   render={(props) => <DELETE_PRODUCT_ADMIN setExact={this.setExact}/>} />
                 </Column>
             
               </Column>

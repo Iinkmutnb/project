@@ -107,20 +107,30 @@ class login extends Component {
 
            
             </div>
-            ):(<div> <Addons style={{paddingBottom:'10px', width:'150px',marginLeft:'20px'}} >
-                <Label style={{paddingRight:'10px',paddingTop:'5px'}}>
-                    Login 
-                </Label>
-                <Input type="text" placeholder="User input" onChange={(e) => this.setUser(e)}/>
-            </Addons >
+            ):(<div> <table>
+                <tr>
+                <td style={{padding:'1px',width:'64px'}}>
+                
+                    ชื่อผู้ใช้:
+                </td>
+                <td style={{width:'170px'}}>
+              
+                <Input type="text" placeholder="ชื่อผู้ใช้" onChange={(e) => this.setUser(e)} />
+                </td>
+                </tr>
+                </table>
             
-            
-            <Addons style={{paddingBottom:'10px', width:'150px',marginLeft:'20px'}}  >
-                <Label style={{paddingRight:'15px',paddingTop:'5px'}}>
-                    Pass 
-                </Label>
-                <Input type="text" placeholder="Password" onChange={(e) => this.setPass(e)}/>
-            </Addons >
+                <table>
+                    <tr>
+                        <td style={{width:'64px'}}>
+              
+                    รหัสผ่าน: 
+                    </td>
+                    <td style={{width:'170px'}}>
+                <Input type="password" placeholder="รหัสผ่าน" onChange={(e) => this.setPass(e)}/>
+                </td>
+                </tr>
+                </table>
             
             
             <Tile context="isParent" isVertical> 
@@ -162,3 +172,12 @@ class login extends Component {
     }
 
 export default login;
+/*
+<Addons style={{paddingBottom:'10px', width:'150px',marginLeft:'20px'}} >
+                <Label style={{paddingRight:'10px',paddingTop:'5px',width:'52px'}}>
+                    ชื่อผู้ใช้
+                </Label>
+                <Input type="text" placeholder="User input" onChange={(e) => this.setUser(e)} style={{width:'5px'}}/>
+            </Addons >
+
+*/ 

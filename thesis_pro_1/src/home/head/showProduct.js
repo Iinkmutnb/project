@@ -39,7 +39,7 @@ import {Table,Thead,Tr,Th,Tbody,Td,Button,Group} from 're-bulma';
                                                               <Tr>
                                                                 <Td>
                                                                   {product.name}
-                                                                  {product.Price}
+                                                                  
                                                                 </Td>
                                                               </Tr>
                                                               <Tr>
