@@ -45,7 +45,7 @@ import {Table,Thead,Tr,Th,Tbody,Td,Button,Group} from 're-bulma';
                                                               <Tr>
                                                                 <Td> 
                                                                   <Group>
-                                                                    <Button color="isPrimary" onClick={() => props.showModal(product.id)}>ดูลายละเอียด</Button>
+                                                                    <Button color="isPrimary" onClick={() => props.showModal(product.code)}>ดูลายละเอียด</Button>
                                                                     <Button color="isSuccess">หยิลบใส่ตระกร้า</Button>  
                                                                   </Group>
                                                                 </Td>

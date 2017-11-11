@@ -51,7 +51,7 @@ class Product extends Component {
           
         
       }
-      showModal = (productId) => {
+      showModal = (productCode) => {
         this.setState({showModal: true})
     
         fetch('http://localhost:9000/showModal', {
@@ -62,7 +62,7 @@ class Product extends Component {
        
        
            method: "POST",
-           body:  queryString.stringify({'id':productId})
+           body:  queryString.stringify({'code':productCode})
           
          
        })
