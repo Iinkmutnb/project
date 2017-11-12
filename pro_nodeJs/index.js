@@ -61,7 +61,20 @@ router.route('/insertProduct').post( function(req, res) {
     
     access.insertProduct(req,res,req.body.code,req.body.name,req.body.price,req.body.file,req.body.definition);
 });
-
-
+router.route('/selectOneProduct').post( function(req, res) {
+    
+    access.selectOneProduct(req,res,req.body.code);
+});
+router.route('/checkEditProduct').post( function(req, res) {
+    
+    access.checkEditProduct(req,res,req.body.codeOld,req.body.nameOld,req.body.srcOld,req.body.code,req.body.name,req.body.file);
+});
+router.route('/editProduct').post( function(req, res) {
+    
+    access.editProduct(req,res,req.body.codeOld,req.body.code,req.body.name,req.body.price,req.body.file,req.body.definition);
+});
+router.route('/editUploadImageProduct').post( function(req, res) {
+    access.editUploadImageProduct(req,res);
+}); 
 app.use('/', router);
 app.listen(port);

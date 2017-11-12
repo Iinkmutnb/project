@@ -3,6 +3,7 @@ import {Menu} from 're-bulma';
 import {Button,Table,Thead,Tr,Th,Tbody,Td} from 're-bulma';
 import cookie from 'react-cookies';
 import queryString from 'query-string';
+import {Link} from 'react-router-dom';
 class edit extends Component {
     constructor(props) {
         super(props);
@@ -27,7 +28,7 @@ class edit extends Component {
          .then((response) => response.json())
          .then((data) => {
           this.setState({product: data})
-          console.log(JSON.stringify(this.state.product));
+         
           })
          .catch(function(error) 
           {
@@ -54,12 +55,15 @@ class edit extends Component {
                     <Tbody style={{color:'grey'}}>
               {
                   this.state.product.map((product,key) => 
+                                                    
                                                         <Tr>
                                                         <Td><b>{key+1}</b></Td>
-                                                        <Td>-</Td>
+                                                        <Td><b>{product.code}</b></Td>
                                                         <Td><b>{product.name}</b></Td>
-                                                        <Td><Button color="isWarning">แก้ไข</Button></Td>
+                                                        <Td><Button color="isWarning" style={{padding:'0px'}}><Link to={`/editAdmin/product/edits${product.code}`}  style={{padding:'7px',textDecoration:'none'}}>แก้ไข</Link></Button></Td>
                                                         </Tr>
+                                                        
+                                                 
                                                  )}
                     </Tbody>
               

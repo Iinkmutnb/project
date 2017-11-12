@@ -6,6 +6,11 @@ var insertUser=require('./insertUser.js');
 var insertImageProduct=require('./insertImageProduct.js');
 var checkProduct=require('./checkProduct.js');
 var insertProduct=require('./insertProduct.js');
+var selectOneProduct=require('./selectOneProduct.js');
+var checkEditProduct=require('./checkEditProduct.js');
+var editProduct=require('./editProduct.js');
+var editUploadImageProduct=require('./editUploadImageProduct.js');
+
 module.exports={
     querys: function(name,res) {
         querys.querys(name,res);
@@ -35,6 +40,24 @@ module.exports={
         
         insertProduct.insertProduct(req,res,code,name,price,file,definition);
  
-     }
+     },
+     selectOneProduct: function(req,res,code){
+        
+        selectOneProduct.selectOneProduct(req,res,code);
+ 
+     },
+     checkEditProduct: function(req,res,codeOld,nameOld,srcOld,code,name,file){
+        
+        checkEditProduct.checkEditProduct(req,res,codeOld,nameOld,srcOld,code,name,file);
+ 
+     }, 
+     editProduct: function(req,res,codeOld,code,name,price,file,definition){
+        
+        editProduct.editProduct(req,res,codeOld,code,name,price,file,definition);
+ 
+     },
+     editUploadImageProduct: function(req,res){
+        editUploadImageProduct.editUploadImageProduct(req,res);
 
+    }
 }

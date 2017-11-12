@@ -8,11 +8,14 @@ import {Table,Thead,Tr,Th,Tbody,Td,Button,Group} from 're-bulma';
     let index =0;
     let data=[];
     let data2=[];
+    console.log("count product:"+product.length)
     for(var i=0;i<product.length;i++){
       
        data[index]=<td>{product[i]}</td>
        index++;
        if(index==3){data2[key]=<tr>{data[index-3]}{data[index-2]}{data[index-1]}</tr>;key++;index=0;}
+       else if((i==product.length-1)&&(product.length%3==1)){data2[key]=<tr>{data[index-1]}</tr>;key++;index=0;}
+       else if((i==product.length-1)&&(product.length%3==2)){data2[key]=<tr>{data[index-2]}{data[index-1]}</tr>;key++;index=0;}
      }
 
     return data2;
@@ -53,7 +56,7 @@ import {Table,Thead,Tr,Th,Tbody,Td,Button,Group} from 're-bulma';
                                                             </Tbody>
                                                           </Table>
                                                         </div>);
-    
+   
     const product3=isenrtTagTrAndTd(product2);
     return <div><table>{product3}</table></div>;
   }

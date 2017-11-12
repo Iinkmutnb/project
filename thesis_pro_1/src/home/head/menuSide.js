@@ -56,7 +56,7 @@ borderWidth: '0px 1px 1px 1px',borderRadius: '0px 0px 12px 12px'}}>
     (
         <div>
         <Button> 
-        <Link to="/editAdmin" style={{padding:'7px',border:'1px solid'}}>เข้าสู่ะบบการแก้ไข
+        <Link to="/editAdmin/product/insert" style={{padding:'7px',border:'1px solid'}}>เข้าสู่ะบบการแก้ไข
         </Link>
         </Button>
 

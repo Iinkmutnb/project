@@ -18,6 +18,7 @@ import INSERT_PRODUCT_ADMIN from './home/editAdmin/insert.js';
 import MENU_SIDE_ADMIN from './home/editAdmin/menuSide.js';
 import TAP_MENU_PRODUCT_ADMIN from './home/editAdmin/tapMenuProduct.js';
 import EDIT_PRODUCT_ADMIN from './home/editAdmin/edit.js';
+import EDITS_PRODUCT_ADMIN from './home/editAdmin/edits.js';
 import DELETE_PRODUCT_ADMIN from './home/editAdmin/deleteProduct.js';
 class App extends Component {
   constructor(props) {
@@ -75,6 +76,7 @@ class App extends Component {
                           <Route path='/editAdmin/product/insert'   render={(props) => <INSERT_PRODUCT_ADMIN setExact={this.setExact}/>} />
                           <Route path='/editAdmin/product/edit'   render={(props) => <EDIT_PRODUCT_ADMIN setExact={this.setExact}/>} />
                           <Route path='/editAdmin/product/delete'   render={(props) => <DELETE_PRODUCT_ADMIN setExact={this.setExact}/>} />
+                          <Route path='/editAdmin/product/edits:code'   render={(props) => <EDITS_PRODUCT_ADMIN {...props}  setExact={this.setExact}/>} />
                         </Column>
                       </Column>
                      
@@ -124,6 +126,7 @@ class App extends Component {
                   <Route path='/editAdmin/insert'   render={(props) => <INSERT_PRODUCT_ADMIN setExact={this.setExact}/>} />
                   <Route path='/editAdmin/product/edit'   render={(props) => <EDIT_PRODUCT_ADMIN setExact={this.setExact}/>} />
                   <Route path='/editAdmin/product/delete'   render={(props) => <DELETE_PRODUCT_ADMIN setExact={this.setExact}/>} />
+                  <Route path='/editAdmin/product/edits:code'   render={(props) => <EDITS_PRODUCT_ADMIN {...props}  setExact={this.setExact}/>} />
                 </Column>
             
               </Column>
