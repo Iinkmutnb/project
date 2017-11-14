@@ -12,7 +12,7 @@ class deleteProduct extends Component {
       
                
         this.props.setExact(true,true);
-        fetch('http://localhost:9000/showProduct', {
+        fetch('http://localhost:9000/showOfficer', {
             headers: {
                       'Content-Type':'application/x-www-form-urlencoded'
           
@@ -27,7 +27,7 @@ class deleteProduct extends Component {
          .then((response) => response.json())
          .then((data) => {
           this.setState({product: data})
-          console.log(JSON.stringify(this.state.product));
+          //console.log(JSON.stringify(this.state.product));
           })
          .catch(function(error) 
           {
@@ -37,28 +37,30 @@ class deleteProduct extends Component {
 
     }
     deleteProduct=(code,src)=>{
+        /*
         console.log(src)
-       fetch('http://localhost:9000/deleteProduct', {
+        fetch('http://localhost:9000/showOfficer', {
             headers: {
                       'Content-Type':'application/x-www-form-urlencoded'
           
                      },
          
          
-             method: "POST",                  
-             body:  queryString.stringify({'code':code,'Src':src})
+             method: "POST",
+             body:  queryString.stringify({'name':'*'})
             
            
          })
          .then((response) => response.json())
          .then((data) => {
-            if(data.qreury){
-                this.setState({checkSuccess:1,isOpen:true})
-            } else{ this.setState({checkSuccess:2,isOpen:true})}
-
+          this.setState({product: data})
+         console.log(data)
           })
-     .catch(function(error) {console.log( error.message);});
-
+         .catch(function(error) 
+          {
+            console.log( error.message);
+          });
+*/
     }
     setCloserModal=()=>{
         window.location.reload();
@@ -68,12 +70,14 @@ class deleteProduct extends Component {
       
         return (
             <div >
+                
                 <Table style={{marginTop:'50px'}}>
                     <Thead>
                         <Tr>
                         <Th>ลำดับ</Th>
-                        <Th>รหัสสินค้า</Th>
-                        <Th>ชื่อสินค้า</Th>
+                        <Th>รหัสพนักงาน</Th>
+                        <Th>ชื่อพนักงาน</Th>
+                        <Th>รูป</Th>
                         <Th>แก้ไข</Th>
                         
                         </Tr>
@@ -85,6 +89,7 @@ class deleteProduct extends Component {
                                                         <Td><b>{key+1}</b></Td>
                                                         <Td>{product.code}</Td>
                                                         <Td><b>{product.name}</b></Td>
+                                                        <Td>-></Td>
                                                         <Td><Button  color="isDanger" onClick={(e)=>this.deleteProduct(product.code,product.Src)}>ลบ</Button></Td>
                                                         </Tr>
                                                  )}

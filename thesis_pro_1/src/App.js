@@ -20,6 +20,11 @@ import TAP_MENU_PRODUCT_ADMIN from './home/editAdmin/tapMenuProduct.js';
 import EDIT_PRODUCT_ADMIN from './home/editAdmin/edit.js';
 import EDITS_PRODUCT_ADMIN from './home/editAdmin/edits.js';
 import DELETE_PRODUCT_ADMIN from './home/editAdmin/deleteProduct.js';
+import TAP_MENU_OFFICER_ADMIN from './home/editAdmin/tapMenuOfficer.js';
+import INSERT_OFFICER_ADMIN from './home/editAdmin/insertOfficer.js';
+import EDIT_OFFICER_ADMIN from './home/editAdmin/editOfficer.js';
+import EDITS_OFFICER_ADMIN from './home/editAdmin/editsOfficer.js';
+import DELETE_OFFICER_ADMIN from './home/editAdmin/deleteOfficer.js';
 class App extends Component {
   constructor(props) {
     super(props);
@@ -71,12 +76,18 @@ class App extends Component {
                       <Column>
                         <Column  style={{padding:'10px 1px 0px 5px'}}>
                         <Route path='/editAdmin/product'   render={(props) => <TAP_MENU_PRODUCT_ADMIN setExact={this.setExact}/>} />
+                        <Route path='/editAdmin/officer'   render={(props) => <TAP_MENU_OFFICER_ADMIN setExact={this.setExact}/>} />
                         </Column>
                         <Column style={{marginTop:'0px',padding:'0px 1px 1px 5px'}}>
                           <Route path='/editAdmin/product/insert'   render={(props) => <INSERT_PRODUCT_ADMIN setExact={this.setExact}/>} />
                           <Route path='/editAdmin/product/edit'   render={(props) => <EDIT_PRODUCT_ADMIN setExact={this.setExact}/>} />
                           <Route path='/editAdmin/product/delete'   render={(props) => <DELETE_PRODUCT_ADMIN setExact={this.setExact}/>} />
                           <Route path='/editAdmin/product/edits:code'   render={(props) => <EDITS_PRODUCT_ADMIN {...props}  setExact={this.setExact}/>} />
+
+                          <Route path='/editAdmin/officer/insertOfficer'   render={(props) => <INSERT_OFFICER_ADMIN setExact={this.setExact}/>} />
+                          <Route path='/editAdmin/officer/editOfficer'   render={(props) => <EDIT_OFFICER_ADMIN setExact={this.setExact}/>} />
+                          <Route path='/editAdmin/officer/editsOfficer:code'   render={(props) => <EDITS_OFFICER_ADMIN setExact={this.setExact}/>} />
+                          <Route path='/editAdmin/officer/deleteOfficer'   render={(props) => <DELETE_OFFICER_ADMIN {...props}  setExact={this.setExact}/>} />
                         </Column>
                       </Column>
                      
@@ -123,7 +134,8 @@ class App extends Component {
                   <Route path='/' exact={this.state.exactProdcut} render={(props) => <PRODUCT setExact={this.setExact}/>}  />
                   <Route path='/register'   render={(props) => <REGISTER setExact={this.setExact}/>} />
                   <Route path='/editAdmin'   render={(props) => <EDIT_ADMIN setExact={this.setExact}/>} />
-                  <Route path='/editAdmin/insert'   render={(props) => <INSERT_PRODUCT_ADMIN setExact={this.setExact}/>} />
+                  <Route path='/editAdmin/product'   render={(props) => <TAP_MENU_PRODUCT_ADMIN setExact={this.setExact}/>} />
+                  <Route path='/editAdmin/product/insert'   render={(props) => <INSERT_PRODUCT_ADMIN setExact={this.setExact}/>} />
                   <Route path='/editAdmin/product/edit'   render={(props) => <EDIT_PRODUCT_ADMIN setExact={this.setExact}/>} />
                   <Route path='/editAdmin/product/delete'   render={(props) => <DELETE_PRODUCT_ADMIN setExact={this.setExact}/>} />
                   <Route path='/editAdmin/product/edits:code'   render={(props) => <EDITS_PRODUCT_ADMIN {...props}  setExact={this.setExact}/>} />

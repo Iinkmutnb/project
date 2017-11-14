@@ -10,7 +10,11 @@ var selectOneProduct=require('./selectOneProduct.js');
 var checkEditProduct=require('./checkEditProduct.js');
 var editProduct=require('./editProduct.js');
 var editUploadImageProduct=require('./editUploadImageProduct.js');
-
+var deleteProduct=require('./deleteProduct.js');
+var showOffice=require('./showOffice.js');
+var checkOfficer=require('./checkOfficer.js');
+var insertOfficer=require('./insertOfficer.js');
+var insertImageOfficer=require('./insertImageOfficer.js');
 module.exports={
     querys: function(name,res) {
         querys.querys(name,res);
@@ -59,5 +63,22 @@ module.exports={
      editUploadImageProduct: function(req,res){
         editUploadImageProduct.editUploadImageProduct(req,res);
 
+    },
+    deleteProduct: function(req,res,code,Src){
+        deleteProduct.deleteProduct(req,res,code,Src);
+
+    },
+    showOffice: function(name,res){
+        showOffice.showOffice(name,res);
+
+    },
+    checkOfficer: function(req,res,code,user,file){
+        checkOfficer.checkOfficer(req,res,code,user,file)
+    },
+    insertOfficer: function(req,res,code,name,subname,file,address,user,pass){
+        insertOfficer.insertOfficer(req,res,code,name,subname,file,address,user,pass)
+    },
+    insertImageOfficer: function(req,res){
+        insertImageOfficer.insertImageOfficer(req,res)
     }
 }

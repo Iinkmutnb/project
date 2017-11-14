@@ -51,7 +51,7 @@ class menuSide extends Component {
                           </Column>
                           <Column style={{marginTop:'0px',padding:'0px'}}>
                             <Button style={{width:"247px",height:'80px',padding:'0px'}}>
-                              <Link to="/editAdmin/"  style={{outline:'0', textDecoration: 'none',marginTop:'0px',padding:'29px 102px 29px 85px'}}>พนักงาน</Link>
+                              <Link to="/editAdmin/officer/insertOfficer"  style={{outline:'0', textDecoration: 'none',marginTop:'0px',padding:'29px 102px 29px 85px'}}>พนักงาน</Link>
                             </Button>
                           </Column>
                       </Notification>

@@ -76,5 +76,27 @@ router.route('/editProduct').post( function(req, res) {
 router.route('/editUploadImageProduct').post( function(req, res) {
     access.editUploadImageProduct(req,res);
 }); 
+router.route('/deleteProduct').post( function(req, res) {
+    access.deleteProduct(req,res,req.body.code,req.body.Src);
+   
+});
+router.route('/showOfficer').post( function(req, res) {
+   
+    access.showOffice(req.body.name,res);
+   
+});
+router.route('/checkOfficer').post( function(req, res) {
+  
+    access.checkOfficer(req,res,req.body.code,req.body.user,req.body.file);
+   
+});
+router.route('/insertOfficer').post( function(req, res) {
+    
+      access.insertOfficer(req,res,req.body.code,req.body.name,req.body.subname,req.body.file,req.body.address,req.body.user,req.body.pass);
+     
+  });
+  router.route('/insertImageOfficer').post( function(req, res) {
+    access.insertImageOfficer(req,res);
+}); 
 app.use('/', router);
 app.listen(port);
